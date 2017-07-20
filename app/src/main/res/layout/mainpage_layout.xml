@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:id="@+id/root"
+      >
+      <android.support.v4.view.ViewPager
+          android:id="@+id/pager"
+          android:layout_width="match_parent"
+          android:layout_height="250dp"
+          >
+
+      </android.support.v4.view.ViewPager>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Latest "
+          android:textSize="30sp"
+          android:id="@+id/latestproductstitle"
+          android:layout_below="@+id/pager"
+          android:layout_margin="10dp"
+          />
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="More"
+          android:background="@null"
+          android:textColor="@color/colorPrimary"
+          android:layout_above="@+id/latestproductsrecycler"
+          android:layout_alignParentEnd="true" />
+      <android.support.v7.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@+id/latestproductstitle"
+          android:layout_margin="10dp"
+          android:id="@+id/latestproductsrecycler"
+
+          >
+
+      </android.support.v7.widget.RecyclerView>
+      </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/root"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="special Offer "
+            android:textSize="30sp"
+            android:id="@+id/discountproductstitle"
+
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="More"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
+            android:layout_above="@+id/discountproductsrecycler"
+            android:layout_alignParentEnd="true" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/discountproductstitle"
+            android:layout_margin="10dp"
+            android:id="@+id/discountproductsrecycler"
+
+            >
+
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</ScrollView>
+</RelativeLayout>

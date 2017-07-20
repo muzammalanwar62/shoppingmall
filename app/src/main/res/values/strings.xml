@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Shopping Mall</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="title_activity_showproducts">showproducts</string>
+    <string name="title_activity_shoping_cart">shoping_cart</string>
+    <string name="title_activity_product_details">product_details</string>
+    <string name="title_activity_login_">Login_Activity</string>
+    <string name="title_activity_signup">Signup</string>
+</resources>
