@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -18,10 +20,10 @@ import java.util.ArrayList;
  */
 
 public class Discount_adapter extends RecyclerView.Adapter<discountholder> {
-    ArrayList<latest_product> latest_prodct_List;
+    ArrayList<products> latest_prodct_List;
     Context context;
 
-    public Discount_adapter(ArrayList<latest_product> arrayList, Context context) {
+    public Discount_adapter(ArrayList<products> arrayList, Context context) {
         this.latest_prodct_List = arrayList;
         this.context = context;
     }
@@ -33,11 +35,11 @@ public class Discount_adapter extends RecyclerView.Adapter<discountholder> {
 
     @Override
     public void onBindViewHolder(discountholder holder, int position) {
-        latest_product latest=latest_prodct_List.get(position);
-        holder.latestimg.setImageResource(latest.getImage());
-        holder.productname.setText(latest.getPrdctname());
-        holder.productprice.setText(latest.getPrdctprice());
-        holder.discount.setText(String.valueOf(latest.getDiscountprice()));
+        products latest=latest_prodct_List.get(position);
+        Picasso.with(context).load(latest.getImage()).into(holder.latestimg);
+        holder.productname.setText(latest.getName());
+        holder.productprice.setText("Rs:"+String.valueOf(latest.getPrice()));
+        holder.discount.setText("Rs:"+String.valueOf(latest.getDiscount()));
         holder.productprice.setPaintFlags(holder.productprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         holder.card.setOnClickListener(new View.OnClickListener() {

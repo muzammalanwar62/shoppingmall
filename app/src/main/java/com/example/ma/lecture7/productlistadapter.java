@@ -34,7 +34,14 @@ public class productlistadapter extends RecyclerView.Adapter<productsviewholder>
     public void onBindViewHolder(productsviewholder holder, int position) {
         final products pro=productsArrayList.get(position);
         holder.productname.setText(pro.getName());
-        holder.productprice.setText(pro.getPrice());
+        if (pro.getDiscount()!= 0){
+            holder.productprice.setText("Rs:"+String.valueOf(pro.getDiscount()));
+
+        }
+        else  if (pro.getDiscount()==0){
+            holder.productprice.setText("Rs:"+String.valueOf(pro.getPrice()));
+        }
+
         Picasso.with(context).load(pro.getImage()).into(holder.productimg);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +50,10 @@ public class productlistadapter extends RecyclerView.Adapter<productsviewholder>
                 intent.putExtra("Specifications",pro.getSpecification());
                 intent.putExtra("Image",pro.getImage());
                 intent.putExtra("Name",pro.getName());
+                intent.putExtra("ID", pro.getId());
+                intent.putExtra("PRICE",pro.getPrice());
+                intent.putExtra("DISCOUNT",pro.getDiscount());
+                intent.putExtra("QUANTITY",pro.getQuantity());
                 context.startActivity(intent);
             }
         });

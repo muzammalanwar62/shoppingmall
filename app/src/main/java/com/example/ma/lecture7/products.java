@@ -6,21 +6,7 @@ package com.example.ma.lecture7;
 
 public class products {
 
-    public String getPrice() {
-        return Price;
-    }
 
-    public void setPrice(String price) {
-        Price = price;
-    }
-
-    public String getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(String discount) {
-        this.discount = discount;
-    }
 
     public String getImage() {
         return image;
@@ -30,9 +16,28 @@ public class products {
         this.image = image;
     }
 
-    String Name,Catorgery, Price,discount,image,specification;
+    String Name,Catorgery,image,specification;
 
     int quantity;
+
+    public int getPrice() {
+        return Price;
+    }
+
+    public void setPrice(int price) {
+        Price = price;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    int Price;
+    int discount;
 
     public String getSpecification() {
         return specification;

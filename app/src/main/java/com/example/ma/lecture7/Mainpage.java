@@ -35,7 +35,9 @@ public class Mainpage extends Fragment {
         discountlist= (RecyclerView) v.findViewById(R.id.discountproductsrecycler);
         latestlist.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         discountlist.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
-        arrayList=new ArrayList<>();
+        get_product_by_discount discount = new get_product_by_discount(getActivity(), discountlist);
+        discount.execute();
+        /*arrayList=new ArrayList<>();
         latest_product p1=new latest_product(R.drawable.mobile,"s3","15000");
         latest_product p2=new latest_product(R.drawable.mobiles,"s7","25000");
         latest_product p3=new latest_product(R.drawable.computer,"mac","25000");
@@ -48,7 +50,7 @@ public class Mainpage extends Fragment {
         latestlist.setAdapter(new latest_product_adapter(arrayList,getActivity()));
        discountlist.setAdapter(new Discount_adapter(arrayList,getActivity()));
         ImageSliderAdapter adapter = new ImageSliderAdapter(getActivity(),arr);
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(adapter);*/
         return v;
     }
 }

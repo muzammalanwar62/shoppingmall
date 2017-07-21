@@ -21,6 +21,7 @@ public class shoping_cart extends AppCompatActivity {
         setContentView(R.layout.activity_shoping_cart);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        
        /* productslist=(RecyclerView) findViewById(R.id.cart_itemlist);
         productslist.setLayoutManager(new LinearLayoutManager(shoping_cart.this));
         productsArrayList=new ArrayList<>();

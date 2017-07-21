@@ -1,7 +1,9 @@
 package com.example.ma.lecture7;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -82,10 +84,22 @@ public class logintask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        if(customers.getLoginstatus()=="login sucess"){
+        if(customers.getLoginstatus()=="login success"){
             Toast.makeText(context,customers.getLoginstatus(),Toast.LENGTH_LONG).show();
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            sp.edit().putBoolean("IsLogin",true).commit();
+            sp.edit().putString("Name",customers.getName()).commit();
+            sp.edit().putString("Address", customers.getAddress()).commit();
+            sp.edit().putString("Email", customers.getEmail()).commit();
+            sp.edit().putString("Cell", customers.getCell()).commit();
+            sp.edit().putString("Username", customers.getUsername()).commit();
+
         }else{
             Toast.makeText(context,"Login Failed",Toast.LENGTH_LONG).show();
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+            sp.edit().putBoolean("IsLogin",false);
+
         }
+
     }
 }

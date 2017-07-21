@@ -8,53 +8,39 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 
 /**
- * Created by MA on 7/16/2017.
+ * Created by MA on 7/20/2017.
  */
 
-public class gets_product_task extends AsyncTask<String,Void,Void> {
+public class get_product_by_discount extends AsyncTask {
+    ArrayList<products>arrayList;
     Context context;
-    ArrayList<products> arrayList;
+
     RecyclerView.Adapter rvadapter;
 
-    public gets_product_task(Context context, RecyclerView rv) {
+    public get_product_by_discount(Context context, RecyclerView rv) {
         this.context = context;
         this.rv = rv;
         arrayList=new ArrayList<>();
-        rvadapter=new productlistadapter(arrayList,context);
+        rvadapter=new Discount_adapter(arrayList,context);
     }
 
     RecyclerView rv;
 
 
-
-
     @Override
-    protected Void doInBackground(String... params) {
-        String Categorie=params[0];
+    protected Object doInBackground(Object[] params) {
         try {
-            URL url = new URL("https://helloworldshopingmall.000webhostapp.com/get_products_by_catorgery.php");
+            URL url = new URL("https://helloworldshopingmall.000webhostapp.com/get_products_by_discount.php");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("GET");
             connection.setDoOutput(true);
             connection.setDoInput(true);
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
-            StringBuffer data = new StringBuffer();
-            data.append(URLEncoder.encode("Category", "UTF-8"));
-            data.append("=");
-            data.append(URLEncoder.encode(Categorie, "UTF-8"));
-            writer.write(data.toString());
-            writer.flush();
-            writer.close();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String Json;
             StringBuffer sb = new StringBuffer();
@@ -74,18 +60,20 @@ public class gets_product_task extends AsyncTask<String,Void,Void> {
                 p.setSpecification(jo.getString("Specifications"));
                 arrayList.add(p);
             }
+        } catch (Exception e){
 
         }
-        catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
+        return null;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-      rv.setAdapter(rvadapter);
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
 
+    @Override
+    protected void onPostExecute(Object o) {
+        super.onPostExecute(o);
+        rv.setAdapter(rvadapter);
     }
 }

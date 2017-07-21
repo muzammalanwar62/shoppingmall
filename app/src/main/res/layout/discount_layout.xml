@@ -4,11 +4,11 @@
     android:id="@+id/latestproductscard"
     android:layout_width="120dp"
     app:cardUseCompatPadding="true"
-    android:layout_height="190dp">
+    android:layout_height="200dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         >
 
         <ImageView
@@ -33,24 +33,24 @@
             android:id="@+id/oldprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/latesttext1"
             android:layout_centerHorizontal="true"
             android:text="Price"
-
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="4dp"
             android:textColor="@android:color/holo_green_dark"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:layout_above="@+id/discountprice" />
 
         <TextView
             android:id="@+id/discountprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/oldprice"
-            android:layout_centerHorizontal="true"
             android:text="DiscountPrice"
 
-
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="14dp" />
+            android:textSize="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>
